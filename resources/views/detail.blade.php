@@ -123,15 +123,10 @@
 
         h3 {
             font-size: 1.2em;
-            /* Mengurangi ukuran font */
             line-height: 1.5;
-            /* Memberikan jarak antar baris */
             color: #333;
-            /* Mengubah warna teks */
             font-weight: 400;
-            /* Membuat teks tidak terlalu tebal */
             margin-bottom: 1em;
-            /* Memberikan jarak antar elemen */
         }
     </style>
 
@@ -142,12 +137,7 @@
                     <article>
                         <div class="news-header">
                             @if ($item->data->media->tipe_media == 'Gambar')
-                                @php
-                                    $gambar = Yaza\LaravelGoogleDriveStorage\Gdrive::get($item->data->media->file_id);
-                                    $base64Gambar = base64_encode($gambar->file);
-                                @endphp
-
-                                <img src="data:image/jpeg;base64,{{ $base64Gambar }}" class="news-image"
+                                <img src="{{ $item->data->media->file_id }}" class="news-image"
                                     alt="{{ $item->data->judul }}">
                                 @if ($item->type == 'berita')
                                     <div class="date-badge">

@@ -11,7 +11,7 @@ class LandingpageController extends Controller
     public function landingPage()
     {
         $client = new Client();
-        $apiUrl = 'https://testadmin.mhna.my.id/api/data-desa';
+        $apiUrl = config('app.api_url') . '/api/data-desa';
 
         try {
             $response = $client->request('GET', $apiUrl, [
@@ -52,7 +52,7 @@ class LandingpageController extends Controller
     public function showDetail($type, $slug)
     {
         $client = new Client();
-        $apiUrl = 'https://testadmin.mhna.my.id/api/detail/' . $type . '/' . $slug;
+        $apiUrl = config('app.api_url') . '/api/detail/' . $type . '/' . $slug;
 
         try {
             $response = $client->request('GET', $apiUrl, [
@@ -62,8 +62,6 @@ class LandingpageController extends Controller
             ]);
 
             $item = json_decode($response->getBody()->getContents());
-
-            // dd($item);
 
             return view('detail', compact('item'));
         } catch (\Exception $e) {

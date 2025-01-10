@@ -10,6 +10,7 @@
     @include('components.tentang')
     @include('components.potensi')
     @include('components.berita')
+    @include('components.videoProfil')
     @include('components.perangkat')
     @include('components.lokasi')
     @include('components.backToTop')

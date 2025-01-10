@@ -124,4 +124,5 @@ return [
     ],
 
     'secret_key' => env('APP_SECRET_KEY'),
+    'api_url' => env('APP_API_URL'),
 ];
